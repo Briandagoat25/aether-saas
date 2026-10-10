@@ -1,187 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aether SaaS — POD Gym Apparel Automation</title>
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --card: #141414;
-      --border: #2a2a2a;
-      --text: #f5f5f5;
-      --muted: #888;
-      --accent: #c9a227;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-    .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
-    header { text-align: center; margin-bottom: 3rem; }
-    header h1 { font-size: 2.4rem; font-weight: 600; letter-spacing: -0.02em; }
-    header p { color: var(--muted); margin-top: 0.5rem; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-    .card h2 { font-size: 1.1rem; margin-bottom: 1rem; font-weight: 500; }
-    label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.35rem; }
-    input, select, textarea {
-      width: 100%;
-      background: #0d0d0d;
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.65rem 0.8rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-    button {
-      background: var(--accent);
-      color: #000;
-      border: none;
-      padding: 0.75rem 1.4rem;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-    button:hover { opacity: 0.9; }
-    button.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
-    .results { margin-top: 2rem; }
-    .product {
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 0;
-    }
-    .product:last-child { border: none; }
-    .product h3 { font-size: 1rem; }
-    .product .meta { color: var(--muted); font-size: 0.85rem; margin: 0.25rem 0; }
-    .steps { list-style: none; }
-    .steps li { padding: 0.4rem 0; font-size: 0.9rem; }
-    .steps li::before { content: "→ "; color: var(--accent); }
-    .hidden { display: none; }
-    .badge { display: inline-block; background: #222; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-right: 0.4rem; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aether SaaS</title>
+<style>
+:root { --bg:#0a0a0a; --card:#141414; --border:#2a2a2a; --text:#f5f5f5; --muted:#888; --accent:#c9a227; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+.container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+header{text-align:center;margin-bottom:2.5rem}
+header h1{font-size:2.6rem;font-weight:600;letter-spacing:-0.02em}
+header p{color:var(--muted);margin-top:.4rem}
+nav{text-align:center;margin-bottom:2rem}
+nav a{color:var(--muted);margin:0 1rem;text-decoration:none}
+nav a:hover{color:var(--text)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:800px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem}
+.card h2{font-size:1.1rem;margin-bottom:1rem;font-weight:500}
+label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.3rem}
+input,select{width:100%;background:#0d0d0d;border:1px solid var(--border);color:var(--text);padding:.65rem .8rem;border-radius:8px;margin-bottom:1rem;font-size:.95rem}
+button{background:var(--accent);color:#000;border:none;padding:.75rem 1.4rem;border-radius:8px;font-weight:600;cursor:pointer;font-size:.95rem}
+button.secondary{background:transparent;color:var(--text);border:1px solid var(--border)}
+.results{margin-top:2rem}
+.product{border-bottom:1px solid var(--border);padding:.9rem 0}
+.product:last-child{border:none}
+.badge{display:inline-block;background:#222;padding:.15rem .5rem;border-radius:4px;font-size:.75rem;margin-right:.4rem}
+.hidden{display:none}
+.steps{list-style:none}
+.steps li{padding:.35rem 0;font-size:.9rem}
+.steps li::before{content:"→ ";color:var(--accent)}
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Aether SaaS</h1>
-      <p>Automate premium gym apparel stores — brand → products → Apliiq fulfillment</p>
-    </header>
+<div class="container">
+  <header>
+    <h1>Aether SaaS</h1>
+    <p>Launch premium gym apparel stores in minutes</p>
+  </header>
+  <nav>
+    <a href="/">Builder</a>
+    <a href="/pricing">Pricing</a>
+  </nav>
 
-    <div class="grid">
-      <div class="card">
-        <h2>1. Brand Setup</h2>
-        <form id="brandForm">
-          <label>Brand Name</label>
-          <input type="text" id="brandName" value="Aether Lifts" required>
-          <label>Style</label>
-          <select id="style">
-            <option value="premium athletic">Premium Athletic</option>
-            <option value="modern minimal">Modern Minimal</option>
-            <option value="bold athletic">Bold Athletic</option>
-          </select>
-          <label>Colors (comma separated)</label>
-          <input type="text" id="colors" value="Black, Navy, Stone">
-          <label>Target Customer</label>
-          <input type="text" id="target" value="Home workout beginners & serious lifters">
-          <button type="submit">Generate Catalog</button>
-        </form>
-      </div>
-
-      <div class="card">
-        <h2>2. Shopify Push (Optional)</h2>
-        <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1rem;">
-          Provide an Admin API token to create draft product shells directly in your store.
-        </p>
-        <label>Shop Domain</label>
-        <input type="text" id="shopDomain" placeholder="yourstore.myshopify.com">
-        <label>Admin API Token</label>
-        <input type="password" id="shopifyToken" placeholder="shpat_...">
-        <button id="pushBtn" class="secondary" disabled>Push Product Shells</button>
-        <div id="pushStatus" style="margin-top:1rem; font-size:0.9rem; color:var(--muted);"></div>
-      </div>
+  <div class="grid">
+    <div class="card">
+      <h2>Brand</h2>
+      <form id="brandForm">
+        <label>Brand Name</label>
+        <input id="brandName" value="Aether Lifts" required>
+        <label>Style</label>
+        <select id="style">
+          <option value="premium athletic">Premium Athletic</option>
+          <option value="modern minimal">Modern Minimal</option>
+          <option value="bold athletic">Bold Athletic</option>
+        </select>
+        <label>Colors</label>
+        <input id="colors" value="Black, Navy">
+        <button type="submit">Generate Store</button>
+      </form>
     </div>
-
-    <div id="results" class="results hidden">
-      <div class="grid" style="margin-top:1.5rem;">
-        <div class="card">
-          <h2>Generated Products</h2>
-          <div id="productList"></div>
-        </div>
-        <div class="card">
-          <h2>Apliiq Setup Guide</h2>
-          <ul id="guideSteps" class="steps"></ul>
-          <h3 style="margin:1.2rem 0 0.5rem; font-size:0.95rem;">Recommended Blanks</h3>
-          <ul id="blanks" class="steps"></ul>
-        </div>
-      </div>
+    <div class="card">
+      <h2>Shopify</h2>
+      <label>Domain</label>
+      <input id="shopDomain" placeholder="yourstore.myshopify.com">
+      <label>Admin Token</label>
+      <input id="shopifyToken" type="password" placeholder="shpat_...">
+      <button id="pushBtn" class="secondary" disabled>Push to Shopify</button>
+      <div id="pushStatus" style="margin-top:1rem;font-size:.9rem;color:var(--muted)"></div>
     </div>
   </div>
 
-  <script>
-    let currentCatalogId = null;
-
-    document.getElementById('brandForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const brand = {
-        name: document.getElementById('brandName').value,
-        style: document.getElementById('style').value,
-        colors: document.getElementById('colors').value.split(',').map(c => c.trim()),
-        target: document.getElementById('target').value
-      };
-      const res = await fetch('/api/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(brand)
-      });
-      const data = await res.json();
-      currentCatalogId = data.id;
-      renderResults(data.catalog);
-      document.getElementById('pushBtn').disabled = false;
-    });
-
-    function renderResults(catalog) {
-      document.getElementById('results').classList.remove('hidden');
-      const list = document.getElementById('productList');
-      list.innerHTML = catalog.products.map(p => `
-        <div class="product">
-          <h3>${p.title}</h3>
-          <div class="meta">$${p.price} · ${p.productType}</div>
-          <div>${p.colors.map(c => `<span class="badge">${c}</span>`).join('')}</div>
-        </div>
-      `).join('');
-
-      document.getElementById('guideSteps').innerHTML = catalog.apliigGuide.steps
-        .map(s => `<li>${s}</li>`).join('');
-      document.getElementById('blanks').innerHTML = catalog.apliigGuide.recommendedBlanks
-        .map(b => `<li>${b}</li>`).join('');
-    }
-
-    document.getElementById('pushBtn').addEventListener('click', async () => {
-      const status = document.getElementById('pushStatus');
-      status.textContent = 'Pushing...';
-      const res = await fetch('/api/push-shopify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          catalogId: currentCatalogId,
-          shopDomain: document.getElementById('shopDomain').value,
-          shopifyToken: document.getElementById('shopifyToken').value
-        })
-      });
-      const data = await res.json();
-      status.textContent = data.message || 'Done';
-    });
-  </script>
+  <div id="results" class="results hidden">
+    <div class="grid" style="margin-top:1.5rem">
+      <div class="card">
+        <h2>Products</h2>
+        <div id="productList"></div>
+      </div>
+      <div class="card">
+        <h2>Apliiq Guide</h2>
+        <ul id="guide" class="steps"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+let catalogId = null;
+document.getElementById('brandForm').onsubmit = async e => {
+  e.preventDefault();
+  const brand = {
+    name: document.getElementById('brandName').value,
+    style: document.getElementById('style').value,
+    colors: document.getElementById('colors').value.split(',').map(c=>c.trim())
+  };
+  const res = await fetch('/api/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(brand)});
+  const data = await res.json();
+  catalogId = data.id;
+  render(data.catalog);
+  document.getElementById('pushBtn').disabled = false;
+};
+function render(c) {
+  document.getElementById('results').classList.remove('hidden');
+  document.getElementById('productList').innerHTML = c.products.map(p => `
+    <div class="product">
+      <strong>${p.title}</strong>
+      <div style="color:var(--muted);font-size:.85rem">$${p.price} · ${p.type}</div>
+    </div>`).join('');
+  document.getElementById('guide').innerHTML = c.apliiq.steps.map(s => `<li>${s}</li>`).join('');
+}
+document.getElementById('pushBtn').onclick = async () => {
+  const status = document.getElementById('pushStatus');
+  status.textContent = 'Pushing...';
+  const res = await fetch('/api/push-shopify', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({
+      catalogId,
+      shopDomain: document.getElementById('shopDomain').value,
+      shopifyToken: document.getElementById('shopifyToken').value
+    })
+  });
+  const data = await res.json();
+  status.textContent = data.error || `Created ${data.created?.length || 0} products`;
+};
+</script>
 </body>
 </html>
